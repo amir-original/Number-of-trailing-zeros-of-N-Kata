@@ -9,7 +9,8 @@ public class NumberCalculator {
     private static final int NO_TRAILING_ZEROS = 0;
 
     public int zeros(int number) {
-        long factorial = calculateFactorial(number);
+        long factorial = factorial(number);
+        System.out.println(factorial);
         Matcher matcher = findTrailingZeros(getString(factorial));
 
         return matcher.find() ? numberOfTrailingZeros(matcher) : NO_TRAILING_ZEROS;
@@ -20,7 +21,7 @@ public class NumberCalculator {
         return longToStringFunction.get(factorial);
     }
 
-    private long calculateFactorial(int number) {
+    private long factorial(int number) {
         return rangeClosed(1, number).reduce(1, (a, b) -> a * b);
     }
 
